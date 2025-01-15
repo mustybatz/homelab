@@ -3,11 +3,6 @@ kind: Ingress
 metadata:
   name: capacitor
   namespace: flux-system
-  annotations:
-    kubernetes.io/ingress.class: traefik
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
-    traefik.frontend.rule.type: PathPrefix
 spec:
   rules:
   - http:
