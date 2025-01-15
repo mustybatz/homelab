@@ -13,6 +13,7 @@ spec:
   - http:
       paths:
       - path: /
+        pathType: Exact
         backend:
           serviceName: capacitor
           servicePort: 9000
