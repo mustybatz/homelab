@@ -15,13 +15,13 @@ spec:
     mode: enabled
     ignore:
       # Ignore "validated" annotation which is not inserted during install
-      - paths: [ "/metadata/annotations/prometheus-operator-validated" ]
+      - paths: ["/metadata/annotations/prometheus-operator-validated"]
         target:
           kind: PrometheusRule
   valuesFrom:
-  - kind: ConfigMap
-    name: flux-kube-state-metrics-config
-    valuesKey: kube-state-metrics-config.yaml
+    - kind: ConfigMap
+      name: flux-kube-state-metrics-config
+      valuesKey: kube-state-metrics-config.yaml
   # https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
   values:
     alertmanager:
@@ -33,10 +33,17 @@ spec:
           requests:
             cpu: 200m
             memory: 200Mi
-        podMonitorNamespaceSelector: { }
+        podMonitorNamespaceSelector: {}
         podMonitorSelector:
           matchLabels:
             app.kubernetes.io/component: monitoring
+        volumeClaimTemplate:
+          spec:
+            storageClassName: local-path
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 50Gi
     grafana:
       defaultDashboardsEnabled: true
       adminPassword: flux
