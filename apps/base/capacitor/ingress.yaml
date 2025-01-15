@@ -7,7 +7,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /
+      - path: /capacitor
         pathType: Exact
         backend:
           service:
