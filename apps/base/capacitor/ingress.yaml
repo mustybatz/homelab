@@ -15,5 +15,7 @@ spec:
       - path: /
         pathType: Exact
         backend:
-          serviceName: capacitor
-          servicePort: 9000
+          service:
+            name: capacitor
+            port:
+              number: 9000
