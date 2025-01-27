@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  pi-hole
+  name: pi-hole
   namespace: pi-hole
   labels:
-    app:  pi-hole
+    app: pi-hole
 spec:
   selector:
     matchLabels:
@@ -18,47 +18,38 @@ spec:
   template:
     metadata:
       labels:
-        app:  pi-hole
+        app: pi-hole
     spec:
       containers:
-      - name:  pi-hole
-        image:  pihole/pihole:latest
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
-          limits:
-            cpu: 100m
-            memory: 100Mi
-        livenessProbe:
-          tcpSocket:
-            port: 80
-          initialDelaySeconds: 5
-          timeoutSeconds: 5
-          successThreshold: 1
-          failureThreshold: 3
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /_status/healthz
-            port: 80
-          initialDelaySeconds: 5
-          timeoutSeconds: 2
-          successThreshold: 1
-          failureThreshold: 3
-          periodSeconds: 10
-        ports:
-        - containerPort:  80
-          protocol: TCP
-        - containerPort: 53
-          protocol: TCP
-        - containerPort: 53
-          protocol: UDP
-        volumeMounts:
-        - name: pi-hole-pvc
-          mountPath: /etc/pihole
-        - name: pi-hole-pvc
-          mountPath: /etc/dnsmasq.d
+        - name: pi-hole
+          image: pihole/pihole:latest
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 100m
+              memory: 100Mi
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+            periodSeconds: 10
+          ports:
+            - containerPort: 80
+              protocol: TCP
+            - containerPort: 53
+              protocol: TCP
+            - containerPort: 53
+              protocol: UDP
+          volumeMounts:
+            - name: pi-hole-pvc
+              mountPath: /etc/pihole
+            - name: pi-hole-pvc
+              mountPath: /etc/dnsmasq.d
       volumes:
         - name: pi-hole-pvc
           persistentVolumeClaim:

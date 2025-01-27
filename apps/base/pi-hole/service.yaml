@@ -7,7 +7,7 @@ spec:
   selector:
     app: pi-hole
   ports:
-    - port: 8080
+    - port: 80
       name: web
       targetPort: 80
     - port: 53
