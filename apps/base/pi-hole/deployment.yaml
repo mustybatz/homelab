@@ -40,7 +40,7 @@ spec:
           volumeMounts:
             - name: pi-hole-pvc
               mountPath: /etc/pihole
-            - name: pi-hole-pvc
+            - name: dnsmasq-pvc
               mountPath: /etc/dnsmasq.d
           env:
             - name: DNSMASQ_USER
@@ -49,4 +49,7 @@ spec:
         - name: pi-hole-pvc
           persistentVolumeClaim:
             claimName: pi-hole-pvc
+        - name: dnsmasq-pvc
+          persistentVolumeClaim:
+            claimName: dnsmasq-pvc
       restartPolicy: Always

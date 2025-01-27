@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: pi-hole
 resources:
   - namespace.yaml
+  - pi-hole-pvc.yaml
+  - dnsmasq-pvc.yaml
   - deployment.yaml
-  - persistent-volume-claim.yaml
   - service.yaml
