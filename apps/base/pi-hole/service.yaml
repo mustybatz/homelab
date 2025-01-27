@@ -7,11 +7,14 @@ spec:
   selector:
     app: pi-hole
   ports:
-  - port: 8080
-    targetPort: 80
-  - port: 53
-    targetPort: 53
-    protocol: TCP
-  - port: 53
-    targetPort: 53
-    protocol: UDP
+    - port: 8080
+      name: web
+      targetPort: 80
+    - port: 53
+      name: dns
+      targetPort: 53
+      protocol: TCP
+    - port: 53
+      name: dns-udp
+      targetPort: 53
+      protocol: UDP
