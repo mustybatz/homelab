@@ -4,6 +4,7 @@ metadata:
   name: pi-hole
   namespace: pi-hole
 spec:
+  type: LoadBalancer
   selector:
     app: pi-hole
   ports:
