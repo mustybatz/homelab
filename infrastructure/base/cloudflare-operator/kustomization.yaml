@@ -1,13 +1,7 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1
+apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: cloudflare-operator
-  namespace: cloudflare-operator-system
-spec:
-  interval: 10m
-  path: "./config/default"
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: cloudflare-operator
-  targetNamespace: cloudflare-operator-system
+namespace: cloudflare-operator-system
+resources:
+  - cf-operator-namespace.yaml
+  - cf-operator-source.yaml
+  - cf-operator-kustomization.yaml
