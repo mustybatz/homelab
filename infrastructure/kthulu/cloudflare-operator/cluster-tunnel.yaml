@@ -8,7 +8,7 @@ spec:
     name: kthulu-tunnel
   size: 2
   cloudflare:
-    email: barush1203@gmail.com
+    email: barushuwu@gmail.com
     domain: barlabs.tech
     secret: cloudflare-secrets
     # accountId and accountName cannot be both empty. If both are provided, Account ID is used if valid, else falls back to Account Name.
