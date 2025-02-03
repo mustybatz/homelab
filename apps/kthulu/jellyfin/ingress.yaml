@@ -14,3 +14,5 @@ spec:
                 name: jellyfin-tcp
                 port:
                   name: http-tcp
+            path: /
+            pathType: Prefix
