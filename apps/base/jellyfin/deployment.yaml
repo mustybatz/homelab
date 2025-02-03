@@ -21,6 +21,13 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8096
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1000m"
+            requests:
+              memory: "256Mi"
+              cpu: "500m"
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
@@ -31,7 +38,6 @@ spec:
               mountPath: /cache
             - name: media-volume
               mountPath: /media
-          restartPolicy: Always
       volumes:
         - name: config-volume
           persistentVolumeClaim:
@@ -41,5 +47,5 @@ spec:
             claimName: jellyfin-cache
         - name: media-volume
           hostPath:
-            path: /etc/media
+            path: /path/to/media
             type: Directory
