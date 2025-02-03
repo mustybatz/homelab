@@ -49,6 +49,10 @@ spec:
               mountPath: /cache
             - name: media-volume
               mountPath: /media
+            - name: render-device
+              mountPath: /dev/dri/renderD128
+            - name: card-device
+              mountPath: /dev/dri/card0
       volumes:
         - name: config-volume
           persistentVolumeClaim:
@@ -60,3 +64,9 @@ spec:
           hostPath:
             path: /etc/media
             type: Directory
+        - name: render-device
+          persistentVolumeClaim:
+            claimName: render-device-pvc
+        - name: card-device
+          persistentVolumeClaim:
+            claimName: card-device-pvc

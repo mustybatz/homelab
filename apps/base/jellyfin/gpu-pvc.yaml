@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: render-device-pvc
+  namespace: media-server
+spec:
+  storageClassName: ""
+  volumeName: render-device-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: card-device-pvc
+  namespace: media-server
+spec:
+  storageClassName: ""
+  volumeName: card-device-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi

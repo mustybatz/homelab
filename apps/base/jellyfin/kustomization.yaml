@@ -4,5 +4,7 @@ namespace: jellyfin
 resources:
   - namespace.yaml
   - pvc.yaml
+  - gpu-pv.yaml
+  - gpu-pvc.yaml
   - deployment.yaml
   - service.yaml
