@@ -32,6 +32,13 @@ spec:
             - containerPort: 7359
               name: discovery-udp
               protocol: UDP
+          resources:
+            limits:
+              memory: "3Gi"
+              cpu: "5"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
