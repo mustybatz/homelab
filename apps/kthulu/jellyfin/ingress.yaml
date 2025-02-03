@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jellyfin
+  namespace: jellyfin
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: jellyfin.barlabs.tech
+      http:
+        paths:
+          - backend:
+              service:
+                name: jellyfin-tcp
+                port:
+                  name: http-tcp

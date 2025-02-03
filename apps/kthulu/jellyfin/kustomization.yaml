@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: jellyfin
 resources:
   - ../../base/jellyfin
+  - ingress.yaml

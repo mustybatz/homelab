@@ -1,13 +1,36 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: jellyfin-service
+  name: jellyfin-tcp
   namespace: jellyfin
 spec:
   selector:
     app: jellyfin
   ports:
-    - protocol: TCP
-      port: 8096
+    - port: 8096
       targetPort: 8096
-  type: NodePort
+      name: http-tcp
+      protocol: TCP
+    - port: 8920
+      targetPort: 8920
+      name: https-tcp
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jellyfin-udp
+  namespace: jellyfin
+spec:
+  selector:
+    app: jellyfin
+  ports:
+  - port: 1900             # < port to open on the outside on the server
+    targetPort: 1900       # < targetport. port on the pod to passthrough
+    name: dlna-udp         # < reference name for the port in the deployment yaml
+    protocol: UDP
+  - port: 7359
+    targetPort: 7359
+    name: discovery-udp
+    protocol: UDP
+  type: LoadBalancer
