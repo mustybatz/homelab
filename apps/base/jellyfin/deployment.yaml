@@ -15,6 +15,8 @@ spec:
       labels:
         app: jellyfin
     spec:
+      securityContext:
+        fsGroup: 104
       containers:
         - name: jellyfin
           image: jellyfin/jellyfin:latest
@@ -39,9 +41,6 @@ spec:
             requests:
               memory: "256Mi"
               cpu: "250m"
-          securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
           volumeMounts:
             - name: config-volume
               mountPath: /config
@@ -49,10 +48,11 @@ spec:
               mountPath: /cache
             - name: media-volume
               mountPath: /media
-            - name: render-device
-              mountPath: /dev/dri/renderD128
-            - name: card-device
-              mountPath: /dev/dri/card0
+            - mountPath: /dev/dri
+              name: jellyfin-hardware
+          securityContext:
+            privileged: true
+          
       volumes:
         - name: config-volume
           persistentVolumeClaim:
@@ -64,9 +64,6 @@ spec:
           hostPath:
             path: /etc/media
             type: Directory
-        - name: render-device
-          persistentVolumeClaim:
-            claimName: render-device-pvc
-        - name: card-device
-          persistentVolumeClaim:
-            claimName: card-device-pvc
+        - name: jellyfin-hardware
+          hostPath:
+            path: /dev/dri
