@@ -1,0 +1,8 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: mariadb-operator
+  namespace: flux-system  # Or your preferred namespace
+spec:
+  url: https://helm.mariadb.com/mariadb-operator
+  interval: 1h
