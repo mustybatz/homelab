@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vrising-server
+  labels:
+    app: vrising
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vrising
+  template:
+    metadata:
+      labels:
+        app: vrising
+    spec:
+      containers:
+        - name: vrising
+          image: trueosiris/vrising
+          imagePullPolicy: Always
+          env:
+            - name: TZ
+              value: "Europe/Paris"
+            - name: SERVERNAME
+              value: "vrising-TrueOsiris"
+          ports:
+            - containerPort: 9876
+              protocol: UDP
+            - containerPort: 9877
+              protocol: UDP
+          volumeMounts:
+            - name: server-data
+              mountPath: /mnt/vrising/server
+            - name: persistent-data
+              mountPath: /mnt/vrising/persistentdata
+      volumes:
+        - name: server-data
+          persistentVolumeClaim:
+            claimName: vrising-server-pvc
+        - name: persistent-data
+          persistentVolumeClaim:
+            claimName: vrising-persistentdata-pvc

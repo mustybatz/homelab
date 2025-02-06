@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: librum-config
+  namespace: librum
+data:
+  JWTValidIssuer: "exampleIssuer"
+  SMTPEndpoint: "smtp.example.com"
+  SMTPMailFrom: "mailuser123@example.com"
+  AdminEmail: "admin@example.com"

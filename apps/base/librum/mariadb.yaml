@@ -1,0 +1,22 @@
+apiVersion: mariadb.mmontes.io/v1alpha1
+kind: MariaDB
+metadata:
+  name: librum-db
+  namespace: librum
+spec:
+  rootPasswordSecretKeyRef:
+    name: librum-secrets
+    key: MARIADB_ROOT_PASSWORD
+  users:
+    - name: librum
+      passwordSecretKeyRef:
+        name: librum-secrets
+        key: MARIADB_PASSWORD
+  databases:
+    - name: librum
+  replicas: 1
+  volumeSpec:
+    accessModes: ["ReadWriteOnce"]
+    resources:
+      requests:
+        storage: 5Gi
