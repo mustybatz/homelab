@@ -20,9 +20,9 @@ spec:
           imagePullPolicy: Always
           env:
             - name: TZ
-              value: "Europe/Paris"
+              value: "America/Mexico_City"
             - name: SERVERNAME
-              value: "vrising-TrueOsiris"
+              value: "mazmorras_del_7men"
           ports:
             - containerPort: 9876
               protocol: UDP
