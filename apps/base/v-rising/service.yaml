@@ -13,7 +13,9 @@ spec:
     - protocol: UDP
       port: 9876
       targetPort: 9876
+      name: udp-9876
     - protocol: UDP
       port: 9877
       targetPort: 9877
+      name: udp-9877
   type: ClusterIP
