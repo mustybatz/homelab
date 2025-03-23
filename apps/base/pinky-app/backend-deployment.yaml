@@ -18,5 +18,50 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
+        env:
+          - name: SECRET
+            valueFrom:
+              secretKeyRef:
+                name: silly-api-secret
+                key: my_secret.txt
+          - name: WELCOME_MESSAGE
+            valueFrom:
+              configMapKeyRef:
+                name: silly-api-config
+                key: WELCOME_MESSAGE
+          - name: DEFAULT_FIB_N
+            valueFrom:
+              configMapKeyRef:
+                name: silly-api-config
+                key: DEFAULT_FIB_N
+          - name: DEFAULT_PI_SAMPLES
+            valueFrom:
+              configMapKeyRef:
+                name: silly-api-config
+                key: DEFAULT_PI_SAMPLES
+          - name: DEFAULT_MATRIX_SIZE
+            valueFrom:
+              configMapKeyRef:
+                name: silly-api-config
+                key: DEFAULT_MATRIX_SIZE
+          - name: CAT_FACTS
+            valueFrom:
+              configMapKeyRef:
+                name: silly-api-config
+                key: CAT_FACTS
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: secret-volume
+          mountPath: /secrets
+          readOnly: true
+        - name: images-volume
+          mountPath: /images
+          readOnly: true
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: silly-api-secret
+      - name: images-volume
+        persistentVolumeClaim:
+          claimName: silly-api-images-pvc
