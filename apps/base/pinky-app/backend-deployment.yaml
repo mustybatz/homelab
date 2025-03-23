@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: pinky-app-backend
-        image: mustybatz/silly-backend:latest
+        image: mustybatz/silly-backend:vuwu
         resources:
           limits:
             memory: "128Mi"
