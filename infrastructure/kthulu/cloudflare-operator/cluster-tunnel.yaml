@@ -13,3 +13,4 @@ spec:
     secret: cloudflare-secrets
     # accountId and accountName cannot be both empty. If both are provided, Account ID is used if valid, else falls back to Account Name.
     accountId: c7e22d8517cb8c73d3665670e9a7f673
+    accountName: Barush1203@gmail.com's Account
