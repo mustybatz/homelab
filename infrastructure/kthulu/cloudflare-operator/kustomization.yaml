@@ -4,3 +4,4 @@ namespace: cloudflare-operator-system
 resources:
   - cf-secret.yaml
   - ../../base/cloudflare-operator
+  - cluster-tunnel.yaml
