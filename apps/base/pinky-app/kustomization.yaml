@@ -3,5 +3,9 @@ kind: Kustomization
 namespace: pi-hole
 resources:
   - namespace.yaml
+  - backend-pv.yaml
+  - backend-configmap.yaml
+  - backend-secret.yaml
   - backend-deployment.yaml
   - backend-service.yaml
+  
