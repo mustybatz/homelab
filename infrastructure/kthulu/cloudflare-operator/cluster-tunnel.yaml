@@ -2,10 +2,10 @@
 apiVersion: networking.cfargotunnel.com/v1alpha1
 kind: ClusterTunnel
 metadata:
-  name: k3s-cluster-tunnel
+  name: k3s-cluster-tunnel-default
 spec:
   newTunnel:
-    name: kthulu-tunnel
+    name: kthulu-tunnel-k3s
   size: 2
   cloudflare:
     email: barushuwu@gmail.com
