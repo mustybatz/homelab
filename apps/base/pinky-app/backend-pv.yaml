@@ -16,6 +16,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: silly-api-images-pvc
 spec:
+  storageClassName: local-path
   accessModes:
     - ReadOnlyMany
   resources:
