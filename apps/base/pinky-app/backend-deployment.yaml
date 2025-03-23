@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pinky-app-backend
+spec:
+  selector:
+    matchLabels:
+      app: pinky-app-backend
+  template:
+    metadata:
+      labels:
+        app: pinky-app-backend
+    spec:
+      containers:
+      - name: pinky-app-backend
+        image: mustybatz/silly-backend:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
