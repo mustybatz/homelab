@@ -4,6 +4,7 @@ kind: PersistentVolume
 metadata:
   name: pinky-image-pv
 spec:
+  storageClassName: local-path
   capacity:
     storage: 1Gi
   accessModes:
