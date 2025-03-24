@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: silly-api-config
 data:
-  WELCOME_MESSAGE: "Hello from the ConfigMap 🎉"
+  WELCOME_MESSAGE: "Hello from the ConfigMap my friendo uwu nya 🎉"
   DEFAULT_FIB_N: "28"
   DEFAULT_PI_SAMPLES: "5000000"
   DEFAULT_MATRIX_SIZE: "200"
-  CAT_FACTS: "Cats purr to heal,Cats meow only for humans,Cats have fewer toes on back paws, uwu nya onichan arigato :3"
+  CAT_FACTS: "Kubernetes is the shit,LA LA LA, LALALA, ELMO's WORLD!!,Cats have fewer toes on back paws, uwu nya onichan arigato :3, Israel es un estado ilegitimo"
