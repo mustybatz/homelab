@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: pinky-app-backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: pinky-app-backend
@@ -31,7 +31,7 @@ spec:
         imagePullPolicy: Always
         resources:
           limits:
-            memory: "128Mi"
+            memory: "256Mi"
             cpu: "500m"
         env:
           - name: SECRET
