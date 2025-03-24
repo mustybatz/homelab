@@ -1,0 +1,10 @@
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: TunnelBinding
+metadata:
+  name: pinky-app-tunnel-frontend
+  namespace: pinky-app
+subjects:
+  - name: pinky-app-frontend # Name of our service 
+tunnelRef:
+  kind: ClusterTunnel
+  name: k3s-cluster-tunnel-default
