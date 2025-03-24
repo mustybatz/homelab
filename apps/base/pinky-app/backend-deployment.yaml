@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: pinky-app-backend
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: pinky-app-backend
@@ -11,8 +12,21 @@ spec:
       labels:
         app: pinky-app-backend
     spec:
+      
       containers:
       - name: pinky-app-backend
+        livenessProbe:
+          httpGet:
+            path: /welcome
+            port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /welcome
+            port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 3
         image: mustybatz/silly-backend:vuwu
         imagePullPolicy: Always
         resources:
