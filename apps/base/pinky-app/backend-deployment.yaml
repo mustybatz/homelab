@@ -27,7 +27,7 @@ spec:
             port: 80
             initialDelaySeconds: 3
             periodSeconds: 3
-        image: mustybatz/silly-backend:vuwu
+        image: mustybatz/silly-backend:vuwu-efficient
         imagePullPolicy: Always
         resources:
           limits:
