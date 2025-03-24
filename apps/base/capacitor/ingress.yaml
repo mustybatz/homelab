@@ -4,13 +4,15 @@ metadata:
   name: capacitor
   namespace: flux-system
 spec:
+  ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /capacitor
-        pathType: Exact
-        backend:
-          service:
-            name: capacitor
-            port:
-              number: 9000
+    - host: capacitor.barlabs.tech
+      http:
+        paths:
+          - backend:
+              service:
+                name: capacitor
+                port:
+                  number: 9000
+            path: /
+            pathType: Prefix
