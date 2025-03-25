@@ -1,0 +1,10 @@
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: TunnelBinding
+metadata:
+  name: mc-tunnel
+  namespace: mc
+subjects:
+  - name: minecraft-service # Name of our service 
+tunnelRef:
+  kind: ClusterTunnel
+  name: k3s-cluster-tunnel-default
