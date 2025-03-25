@@ -32,6 +32,10 @@ spec:
               value: LATEST
             - name: MODRINTH_IGNORE_MISSING_FILES
               value: config/mcinstanceloader/pack.mcinstance
+            - name: INIT_MEMORY
+              value: "3G"
+            - name: MAX_MEMORY
+              value: "5G"
           
           resources:
             requests:
