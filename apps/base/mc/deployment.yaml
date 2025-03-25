@@ -24,6 +24,11 @@ spec:
               value: "1"
             - name: MOTD
               value: "Welcome to Minecraft on Kubernetes"
+            - name: MODRINTH_MODPACK
+              value: "aged"
+            - name: MODRINTH_IGNORE_MISSING_FILES
+              value: config/mcinstanceloader/pack.mcinstance
+            
             
           volumeMounts:
             - name: mc-data
