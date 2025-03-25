@@ -11,4 +11,3 @@ spec:
     - protocol: TCP
       port: 25565
       targetPort: 25565
-  type: NodePort  # or LoadBalancer if using a cloud provider
