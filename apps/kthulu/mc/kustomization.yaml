@@ -3,4 +3,3 @@ kind: Kustomization
 namespace: mc
 resources:
   - ../../base/mc
-  - tunnel-binding.yaml
