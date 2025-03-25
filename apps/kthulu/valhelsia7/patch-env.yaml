@@ -12,7 +12,7 @@ spec:
             - name: TYPE
               value: "AUTO_CURSEFORGE"
             - name: CF_PAGE_URL
-              value: "https://www.curseforge.com/minecraft/modpacks/valhelsia-7"
+              value: "https://www.curseforge.com/minecraft/modpacks/valhelsia-6"
             - name: CF_API_KEY
               valueFrom:
                 secretKeyRef:
