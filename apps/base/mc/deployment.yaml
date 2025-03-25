@@ -24,14 +24,6 @@ spec:
               value: "1"
             - name: MOTD
               value: "Welcome to Minecraft on Kubernetes"
-            - name: MODPACK_PLATFORM
-              value: "modrinth"
-            - name: MODRINTH_MODPACK
-              value: "aged"
-            - name: VERSION
-              value: LATEST
-            - name: MODRINTH_IGNORE_MISSING_FILES
-              value: config/mcinstanceloader/pack.mcinstance
             - name: INIT_MEMORY
               value: "3G"
             - name: MAX_MEMORY

@@ -3,3 +3,7 @@ kind: Kustomization
 namespace: mc-server
 resources:
   - ../../base/mc
+  - secret.yaml
+
+patchesStrategicMerge:
+  - patch-env.yaml
