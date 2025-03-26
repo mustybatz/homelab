@@ -30,7 +30,8 @@ spec:
             - name: donetick-data
               mountPath: /donetick-data
             - name: donetick-config
-              mountPath: /config
+              mountPath: /config/selfhosted.yaml
+              subPath: selfhosted.yaml
       volumes:
         - name: donetick-data
           persistentVolumeClaim:
