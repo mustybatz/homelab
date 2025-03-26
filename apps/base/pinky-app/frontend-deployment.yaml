@@ -20,3 +20,13 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 80
+      - name: nginx-exporter
+        image: nginx/nginx-prometheus-exporter:latest
+        args:
+          - "-nginx.scrape-uri=http://localhost:80/nginx_status"
+        port:
+          - containerPort: 9113
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
