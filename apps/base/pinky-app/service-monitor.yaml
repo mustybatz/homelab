@@ -9,8 +9,8 @@ spec:
     matchLabels:
       app: pinky-app-frontend
   endpoints:
-    - port: 9113
+    - port: metrics
       interval: 15s
       path: /metrics
   namespaceSelector:
-    any: true
+    name: pinky-app
