@@ -11,6 +11,6 @@ spec:
   endpoints:
     - port: metrics
       interval: 5s
+  jobLabel: pinky-app-frontend
   namespaceSelector:
-    matchNames:
-      - pinky-app
+    any: true
