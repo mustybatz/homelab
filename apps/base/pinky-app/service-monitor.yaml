@@ -10,7 +10,7 @@ spec:
       app: pinky-app-frontend
   endpoints:
     - port: metrics
-      interval: 15s
+      interval: 5s
       path: /metrics
   namespaceSelector:
     matchNames: 
