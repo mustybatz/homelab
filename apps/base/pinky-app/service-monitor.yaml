@@ -1,5 +1,6 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
+namespace: monitoring
 metadata:
   name: nginx-frontend-monitor
   labels:
