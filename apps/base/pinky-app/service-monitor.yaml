@@ -1,6 +1,5 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
-namespace: monitoring
 metadata:
   name: nginx-frontend-monitor
   labels:
@@ -10,8 +9,8 @@ spec:
     matchLabels:
       app: pinky-app-frontend
   endpoints:
-    - port: metrics
-      interval: 5s
-  jobLabel: pinky-app-frontend
+    - port: 9113
+      interval: 15s
+      path: /metrics
   namespaceSelector:
     any: true
