@@ -1,4 +1,4 @@
-apiVersion: monitoring.coreos.com/v1
+apiVersion: monitoring.coreos.com/v1 
 kind: ServiceMonitor
 metadata:
   name: nginx-frontend-monitor
@@ -13,4 +13,5 @@ spec:
       interval: 15s
       path: /metrics
   namespaceSelector:
-    name: pinky-app
+    matchNames: 
+      - pinky-app
