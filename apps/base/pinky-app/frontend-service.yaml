@@ -9,3 +9,6 @@ spec:
   ports:
   - port: 80
     targetPort: 80
+  - name: metrics
+    port: 9113
+    targetPort: 9113

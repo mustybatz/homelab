@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: nginx-frontend-monitor
+  labels:
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: pinky-app-frontend
+  endpoints:
+    - port: metrics
+      interval: 5s
+  namespaceSelector:
+    matchNames:
+      - pinky-app
