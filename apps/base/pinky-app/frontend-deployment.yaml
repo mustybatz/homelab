@@ -24,7 +24,7 @@ spec:
         image: nginx/nginx-prometheus-exporter:latest
         args:
           - "-nginx.scrape-uri=http://localhost:80/nginx_status"
-        port:
+        ports:
           - containerPort: 9113
         resources:
           limits:
