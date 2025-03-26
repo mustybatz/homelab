@@ -15,6 +15,10 @@ spec:
       containers:
         - name: donetick
           image: donetick/donetick
+          resources:
+            limits:
+              memory: "500Mi"
+              cpu: "200m"
           ports:
             - containerPort: 2021
           env:
@@ -32,5 +36,5 @@ spec:
           persistentVolumeClaim:
             claimName: donetick-data-pvc
         - name: donetick-config
-          persistentVolumeClaim:
-            claimName: donetick-config-pvc
+          configMap:
+            name: donetick-config
