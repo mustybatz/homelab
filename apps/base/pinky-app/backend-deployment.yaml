@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: pinky-app-backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: pinky-app-backend
@@ -27,7 +27,7 @@ spec:
             port: 80
             initialDelaySeconds: 3
             periodSeconds: 3
-        image: mustybatz/silly-backend:vuwu-efficient
+        image: mustybatz/silly-backend:latest
         imagePullPolicy: Always
         resources:
           limits:

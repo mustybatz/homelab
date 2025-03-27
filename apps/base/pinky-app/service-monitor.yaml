@@ -15,3 +15,22 @@ spec:
   namespaceSelector:
     matchNames: 
       - pinky-app
+
+---
+apiVersion: monitoring.coreos.com/v1 
+kind: ServiceMonitor
+metadata:
+  name: nginx-backend-monitor
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app: pinky-app-backend
+  endpoints:
+    - port: http
+      interval: 5s
+      path: /metrics
+  namespaceSelector:
+    matchNames: 
+      - pinky-app
