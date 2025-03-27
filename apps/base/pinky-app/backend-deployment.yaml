@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: pinky-app-backend
 spec:
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       app: pinky-app-backend
