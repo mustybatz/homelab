@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: valhesia-6
 resources:
   - namespace.yaml
-  - ../../base/mc
+  - ../../base/mc-atm
   - secret.yaml
 
 patchesStrategicMerge:
