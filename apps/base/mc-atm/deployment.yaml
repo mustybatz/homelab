@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft
+  template:
+    metadata:
+      labels:
+        app: minecraft
+    spec:
+      containers:
+        - name: mc
+          image: itzg/minecraft-server
+          ports:
+            - containerPort: 25565
+          env:
+            - name: EULA
+              value: "TRUE"
+            - name: TYPE
+              value: "PAPER"
+          resources:
+            requests:
+              memory: "2Gi"
+              cpu: "1"
+            limits:
+              memory: "4Gi"
+              cpu: "2"
+          volumeMounts:
+            - name: mc-data
+              mountPath: /data
+
+        - name: mc-backups
+          image: itzg/mc-backup
+          env:
+            - name: BACKUP_INTERVAL
+              value: "2h"
+            - name: RCON_HOST
+              value: "localhost"
+            - name: MOTD
+              value: "Welcum! UwU"
+            - name: PRE_BACKUP_SCRIPT
+              value: |
+                echo "Before backup!"
+                echo "Also before backup from $$RCON_HOST to $$DEST_DIR"
+            - name: POST_BACKUP_SCRIPT_FILE
+              value: /post-backup.sh
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "200m"
+          volumeMounts:
+            - name: mc-data
+              mountPath: /data
+              readOnly: true
+            - name: mc-backups
+              mountPath: /backups
+            - name: post-backup-script
+              mountPath: /post-backup.sh
+              subPath: post-backup.sh
+              readOnly: true
+
+      volumes:
+        - name: mc-data
+          persistentVolumeClaim:
+            claimName: minecraft-data
+        - name: mc-backups
+          persistentVolumeClaim:
+            claimName: minecraft-backups-pvc
+        - name: post-backup-script
+          configMap:
+            name: post-backup-script

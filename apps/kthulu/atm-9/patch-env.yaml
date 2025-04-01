@@ -1,0 +1,28 @@
+# apps/production/mc/patch-env.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft-server
+spec:
+  template:
+    spec:
+      containers:
+        - name: mc
+          env:
+            - name: TYPE
+              value: "AUTO_CURSEFORGE"
+            - name: CF_PAGE_URL
+              value: "https://www.curseforge.com/minecraft/modpacks/all-the-mods-9"
+            - name: CF_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-env-secrets
+                  key: CF_API_KEY
+            - name: ICON
+              value: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.instagram.com%2Fcursedimages.ar%2Fp%2FCmkU2fLpfAA%2F&psig=AOvVaw3njkfm8RTpHtM0R-VI-1rw&ust=1743637538309000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIDYkJOCuIwDFQAAAAAdAAAAABAE"
+            - name: OVERRIDE_ICON
+              value: "TRUE"
+            - name: ALLOW_FLIGHT
+              value: "TRUE"
+            - name: SERVER_NAME
+              value: "NecrOS"
