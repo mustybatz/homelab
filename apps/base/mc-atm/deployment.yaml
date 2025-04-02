@@ -28,10 +28,10 @@ spec:
               value: "8G"
           resources:
             requests:
-              memory: "2Gi"
+              memory: "5Gi"
               cpu: "1"
             limits:
-              memory: "4Gi"
+              memory: "8Gi"
               cpu: "2"
           volumeMounts:
             - name: mc-data
