@@ -50,8 +50,6 @@ spec:
               value: |
                 echo "Before backup!"
                 echo "Also before backup from $$RCON_HOST to $$DEST_DIR"
-            - name: POST_BACKUP_SCRIPT_FILE
-              value: /post-backup.sh
           resources:
             limits:
               memory: "1Gi"

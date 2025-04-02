@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: post-backup-script
-data:
-  post-backup.sh: |
-    #!/bin/bash
-    echo "Post-backup actions go here"
