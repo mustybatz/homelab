@@ -20,8 +20,12 @@ spec:
           env:
             - name: EULA
               value: "TRUE"
-            - name: TYPE
-              value: "PAPER"
+            - name: SPAWN_PROTECTION
+              value: "1"
+            - name: INIT_MEMORY
+              value: "5G"
+            - name: MAX_MEMORY
+              value: "8G"
           resources:
             requests:
               memory: "2Gi"
