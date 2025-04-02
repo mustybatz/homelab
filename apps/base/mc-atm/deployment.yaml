@@ -72,6 +72,3 @@ spec:
         - name: mc-backups
           persistentVolumeClaim:
             claimName: minecraft-backups-pvc
-        - name: post-backup-script
-          configMap:
-            name: post-backup-script
