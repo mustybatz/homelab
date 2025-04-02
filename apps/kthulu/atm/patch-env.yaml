@@ -19,7 +19,7 @@ spec:
                   name: minecraft-env-secrets
                   key: CF_API_KEY
             - name: ICON
-              value: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.instagram.com%2Fcursedimages.ar%2Fp%2FCmkU2fLpfAA%2F&psig=AOvVaw3njkfm8RTpHtM0R-VI-1rw&ust=1743637538309000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIDYkJOCuIwDFQAAAAAdAAAAABAE"
+              value: "https://i.ibb.co/ynBjmLzB/Screenshot-2025-04-01-183257.png"
             - name: OVERRIDE_ICON
               value: "TRUE"
             - name: ALLOW_FLIGHT
