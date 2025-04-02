@@ -60,10 +60,6 @@ spec:
               readOnly: true
             - name: mc-backups
               mountPath: /backups
-            - name: post-backup-script
-              mountPath: /post-backup.sh
-              subPath: post-backup.sh
-              readOnly: true
 
       volumes:
         - name: mc-data
