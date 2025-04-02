@@ -25,13 +25,13 @@ spec:
             - name: INIT_MEMORY
               value: "5G"
             - name: MAX_MEMORY
-              value: "12G"
+              value: "14G"
           resources:
             requests:
               memory: "5Gi"
               cpu: "1"
             limits:
-              memory: "12G"
+              memory: "14G"
               cpu: "4"
           volumeMounts:
             - name: mc-data
