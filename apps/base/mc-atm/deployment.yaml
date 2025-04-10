@@ -12,26 +12,6 @@ spec:
       labels:
         app: minecraft
     spec:
-      initContainers:
-        - name: restore-world
-          image: itzg/mc-backup
-          command: ["/bin/bash", "-c"]
-          resources:
-            requests:
-              cpu: 3
-          args:
-            - |
-              echo "[RESTORE INIT] Cleaning /data"
-              rm -rf /data/* && \
-              echo "[RESTORE INIT] Restoring backup" && \
-              restore-tar-backup /backups/world-20250410-025854.tgz
-          volumeMounts:
-            - name: mc-data
-              mountPath: /data
-            - name: mc-backups
-              mountPath: /backups
-              readOnly: true
-
       containers:
         - name: mc
           image: itzg/minecraft-server
