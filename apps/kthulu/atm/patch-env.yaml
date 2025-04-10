@@ -18,10 +18,6 @@ spec:
                 secretKeyRef:
                   name: minecraft-env-secrets
                   key: CF_API_KEY
-            - name: ICON
-              value: "https://i.ibb.co/ynBjmLzB/Screenshot-2025-04-01-183257.png"
-            - name: OVERRIDE_ICON
-              value: "TRUE"
             - name: ALLOW_FLIGHT
               value: "TRUE"
             - name: SERVER_NAME
