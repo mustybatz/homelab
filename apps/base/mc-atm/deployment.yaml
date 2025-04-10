@@ -57,7 +57,6 @@ spec:
           volumeMounts:
             - name: mc-data
               mountPath: /data
-              readOnly: true
             - name: mc-backups
               mountPath: /backups
 
