@@ -24,7 +24,7 @@ spec:
               echo "[RESTORE INIT] Cleaning /data"
               rm -rf /data/* && \
               echo "[RESTORE INIT] Restoring backup" && \
-              restore-tar-backup /backups/world-20250409-234733.tgz
+              restore-tar-backup /backups/world-20250410-025854.tgz
           volumeMounts:
             - name: mc-data
               mountPath: /data
