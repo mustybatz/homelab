@@ -27,7 +27,7 @@ spec:
               value: /config
             - name: STUMP_ENABLE_UPLOAD
               value: "true"
-            - name: PORT
+            - name: PORT_KEY
               value: "10801"
 
           volumeMounts:
