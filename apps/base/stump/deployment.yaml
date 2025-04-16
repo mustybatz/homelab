@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: stump
-  namespace: stump
 spec:
   replicas: 1
   selector:
@@ -27,9 +26,15 @@ spec:
               value: /config
             - name: STUMP_ENABLE_UPLOAD
               value: "true"
-            - name: PORT_KEY
+            - name: STUMP_PORT
               value: "10801"
-
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
           volumeMounts:
             - name: stump-config
               mountPath: /config
