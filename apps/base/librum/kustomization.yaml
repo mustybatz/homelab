@@ -4,5 +4,5 @@ resources:
   - pvc.yaml
   - configmap.yaml
   - librum-deployment.yaml
-  - pmariadb-deployment.yaml
+  - mariadb-deployment.yaml
   - services.yaml
