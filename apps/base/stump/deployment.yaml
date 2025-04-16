@@ -27,6 +27,9 @@ spec:
               value: /config
             - name: STUMP_ENABLE_UPLOAD
               value: "true"
+            - name: PORT
+              value: "10801"
+
           volumeMounts:
             - name: stump-config
               mountPath: /config
