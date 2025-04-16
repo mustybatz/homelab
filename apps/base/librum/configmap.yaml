@@ -5,9 +5,6 @@ metadata:
   namespace: librum
 data:
   JWTValidIssuer: exampleIssuer
-  SMTPEndpoint: smtp.example.com
-  SMTPMailFrom: mailuser123@example.com
   DBConnectionString: Server=mariadb;port=3306;Database=librum;Uid=librum;Pwd=mariadb;
-  AdminEmail: admin@example.com
   MARIADB_USER: librum
   MARIADB_DATABASE: librum
