@@ -35,10 +35,6 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-          securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
-            fsGroup: 1000
           volumeMounts:
             - name: stump-config
               mountPath: /config
