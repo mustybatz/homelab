@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: librum-server
+  name: librum
   namespace: librum
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: librum-server
+      app: librum
   template:
     metadata:
       labels:
-        app: librum-server
+        app: librum
     spec:
       containers:
-        - name: librum-server
+        - name: librum
           image: ghcr.io/librum-reader/librum-server:latest
           ports:
             - containerPort: 5000
@@ -23,13 +23,10 @@ spec:
                 name: librum-config
             - secretRef:
                 name: librum-secrets
-          env:
-            - name: DBConnectionString
-              value: "Server=librum-db.mariadb.svc.cluster.local;port=3306;Database=librum;Uid=librum;Pwd=mariadb;"
           volumeMounts:
             - name: librum-storage
               mountPath: /var/lib/librum-server/librum_storage
       volumes:
         - name: librum-storage
           persistentVolumeClaim:
-            claimName: librum-pvc
+            claimName: librum-storage

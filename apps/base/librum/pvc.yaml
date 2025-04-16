@@ -1,24 +1,23 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: librum-pvc
+  name: librum-storage
   namespace: librum
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
-
+      storage: 2Gi
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: librum-db-pvc
+  name: mariadb-storage
   namespace: librum
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: 2Gi
