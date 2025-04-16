@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stump
+  namespace: stump
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stump
+  template:
+    metadata:
+      labels:
+        app: stump
+    spec:
+      containers:
+        - name: stump
+          image: aaronleopold/stump:latest
+          ports:
+            - containerPort: 10801
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: STUMP_CONFIG_DIR
+              value: /config
+            - name: STUMP_ENABLE_UPLOAD
+              value: "true"
+          volumeMounts:
+            - name: stump-config
+              mountPath: /config
+            - name: stump-data
+              mountPath: /data
+      volumes:
+        - name: stump-config
+          persistentVolumeClaim:
+            claimName: stump-config
+        - name: stump-data
+          persistentVolumeClaim:
+            claimName: stump-data
