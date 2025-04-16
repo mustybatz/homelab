@@ -13,6 +13,13 @@ spec:
       labels:
         app: mariadb
     spec:
+      tolerations:
+        - key: "node"
+          operator: "Equal"
+          value: "kthulu-deepone-worker-0"
+          effect: "NoSchedule"
+      nodeSelector:
+        node: "kthulu-deepone-worker-0"
       containers:
         - name: mariadb
           image: mariadb:latest
