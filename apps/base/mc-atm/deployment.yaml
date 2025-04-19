@@ -54,6 +54,9 @@ spec:
             limits:
               memory: "1Gi"
               cpu: "200m"
+            requests:
+              memory: "200Mi"
+              cpu: "10m"
           volumeMounts:
             - name: mc-data
               mountPath: /data
