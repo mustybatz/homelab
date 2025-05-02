@@ -11,6 +11,9 @@ spec:
           env:
             - name: TYPE
               value: "AUTO_CURSEFORGE"
+            - name: CURSEFORGE_FILES
+              value: |
+                butchery
             - name: CF_PAGE_URL
               value: "https://www.curseforge.com/minecraft/modpacks/all-the-mods-10"
             - name: CF_API_KEY
