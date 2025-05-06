@@ -14,7 +14,6 @@ spec:
             - name: CURSEFORGE_FILES
               value: |
                 butchery
-                guns-plusplus
             - name: CF_PAGE_URL
               value: "https://www.curseforge.com/minecraft/modpacks/all-the-mods-10"
             - name: CF_API_KEY
