@@ -66,7 +66,7 @@ spec:
       volumes:
         - name: mc-data
           persistentVolumeClaim:
-            claimName: minecraft-data
+            claimName: minecraft-data-atm10-uwu
         - name: mc-backups
           persistentVolumeClaim:
-            claimName: minecraft-backups-pvc
+            claimName: minecraft-backups-pvc-atm10-uwu
