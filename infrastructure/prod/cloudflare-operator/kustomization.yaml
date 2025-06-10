@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: cloudflare-operator-system
 resources:
   - ../../base/cloudflare-operator
+  - cluster-tunnel.yaml
