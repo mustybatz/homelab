@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: habitat-frontend
+spec:
+  selector:
+    matchLabels:
+      app: habitat-frontend
+  template:
+    metadata:
+      labels:
+        app: habitat-frontend
+    spec:
+      imagePullSecrets:
+        - habitat-frontend-pull
+      containers:
+      - name: habitat-frontend
+        image: keylab/habitat-frontend
+        resources:
+          requests:
+            memory: "50Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+      
+    
