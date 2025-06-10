@@ -12,7 +12,7 @@ spec:
         app: habitat-backend
     spec:
       imagePullSecrets:
-        - habitat-backend-pull
+        - name: habitat-backend-pull
       containers:
       - name: habitat-backend
         image: mustybatz/habitat-backend

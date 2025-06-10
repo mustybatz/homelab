@@ -12,7 +12,7 @@ spec:
         app: habitat-frontend
     spec:
       imagePullSecrets:
-        - habitat-frontend-pull
+        - name: habitat-frontend-pull
       containers:
       - name: habitat-frontend
         image: keylab/habitat-frontend
