@@ -31,6 +31,9 @@ spec:
   values:
     grafana:
       adminPassword: uwuntu
+      service:
+        type: LoadBalancer
     prometheusSpec:
       serviceMonitorNamespaceSelector:
         any: true
+    
