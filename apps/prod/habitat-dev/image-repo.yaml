@@ -1,0 +1,21 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: habitat-backend
+  namespace: habitat-dev
+spec:
+  image: keylab/habitat-backend
+  interval: 1m
+  secretRef:
+    name: habitat-backend-pull
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: habitat-frontend
+  namespace: habitat-dev
+spec:
+  image: keylab/habitat-frontend
+  interval: 1m
+  secretRef:
+    name: habitat-frontend-pull

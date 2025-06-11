@@ -3,3 +3,6 @@ kind: Kustomization
 namespace: habitat-dev
 resources:
   - ../../base/habitat
+  - image-policy.yaml
+  - image-repo.yaml
+  - db.yaml

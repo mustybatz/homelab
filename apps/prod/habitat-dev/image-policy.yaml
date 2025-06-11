@@ -1,0 +1,25 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: habitat-frontend-latest
+  namespace: habitat-dev
+spec:
+  imageRepositoryRef:
+    name: habitat-frontend
+  policy:
+    tag:
+      pattern: latest
+      semver: false
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: habitat-backend-latest
+  namespace: habitat-dev
+spec:
+  imageRepositoryRef:
+    name: habitat-backend
+  policy:
+    tag:
+      pattern: latest
+      semver: false
