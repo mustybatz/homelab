@@ -6,10 +6,13 @@ metadata:
 spec:
   imageRepositoryRef:
     name: habitat-frontend
+  filterTags:
+    ## use "pattern: '[a-f0-9]+-(?P<ts>[0-9]+)'" if you copied the workflow example using github.run_number
+    pattern: '^dev-[a-f0-9]+-(?P<ts>[0-9]+)'
+    extract: '$ts'
   policy:
-    tag:
-      pattern: latest
-      semver: false
+    numerical:
+      order: asc
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
@@ -19,7 +22,10 @@ metadata:
 spec:
   imageRepositoryRef:
     name: habitat-backend
+  filterTags:
+    ## use "pattern: '[a-f0-9]+-(?P<ts>[0-9]+)'" if you copied the workflow example using github.run_number
+    pattern: '^dev-[a-f0-9]+-(?P<ts>[0-9]+)'
+    extract: '$ts'
   policy:
-    tag:
-      pattern: latest
-      semver: false
+    numerical:
+      order: asc
