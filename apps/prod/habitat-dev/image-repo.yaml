@@ -4,7 +4,7 @@ metadata:
   name: habitat-backend
   namespace: habitat-dev
 spec:
-  image: keylab/habitat-backend
+  image: mustybatz/habitat-backend
   interval: 1m
   secretRef:
     name: habitat-backend-pull
