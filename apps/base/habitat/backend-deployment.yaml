@@ -15,7 +15,7 @@ spec:
         - name: habitat-backend-pull
       containers:
       - name: habitat-backend
-        image: mustybatz/habitat-backend:dev-43bf5b29-1749671221 # {"$imagepolicy": "habitat-dev:habitat-backend-latest"}
+        image: mustybatz/habitat-backend:dev-43bf5b29-1749671221
         resources:
           requests:
             memory: "100Mi"
