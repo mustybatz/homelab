@@ -12,8 +12,3 @@ spec:
   prune: true
   wait: true
   timeout: 5m0s
-  images:
-    - name: keylab/habitat-frontend
-      newTag: latest
-    - name: mustybatz/habitat-backend
-      newTag: latest
