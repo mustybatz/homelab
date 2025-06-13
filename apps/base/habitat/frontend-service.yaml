@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: habitat-frontend
+  annotations:
+    tailscale.com/expose: "true"
 spec:
   selector:
     app: habitat-frontend
