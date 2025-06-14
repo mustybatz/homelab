@@ -25,29 +25,37 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 4000
+          args:
+            - "-host=$(HOST)"
+            - "-port=$(DB_PORT)"
+            - "-db_user=$(DB_USER)"
+            - "-db_name=$(DB_NAME)"
+            - "-backend_host=$(BACKEND_HOST)"
           env:
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: habitat-backend-secrets
-                  key: db_password
             - name: HOST
               valueFrom:
                 configMapKeyRef:
                   name: habitat-backend-config
                   key: host
+            - name: DB_PORT
+              value: "5432"  # or use configMap if dynamic
             - name: DB_USER
               valueFrom:
                 configMapKeyRef:
                   name: habitat-backend-config
                   key: db_user
+            - name: DB_NAME
+              value: "habitat_db"
             - name: BACKEND_HOST
               valueFrom:
                 configMapKeyRef:
                   name: habitat-backend-config
                   key: backend_host
-          args:
-            - "-host=$(HOST)"
-            - "-db_user=$(DB_USER)"
-            - "-db_password=$(DB_PASSWORD)"
-            - "-backend_host=$(BACKEND_HOST)"
+          volumeMounts:
+            - name: secrets-volume
+              mountPath: /secrets
+              readOnly: true
+      volumes:
+        - name: secrets-volume
+          secret:
+            secretName: habitat-backend-secrets
