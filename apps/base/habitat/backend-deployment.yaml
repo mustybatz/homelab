@@ -14,14 +14,40 @@ spec:
       imagePullSecrets:
         - name: habitat-backend-pull
       containers:
-      - name: habitat-backend
-        image: mustybatz/habitat-backend:dev-43bf5b29-1749671221
-        resources:
-          requests:
-            memory: "100Mi"
-            cpu: "100m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 4000
+        - name: habitat-backend
+          image: mustybatz/habitat-backend:dev-43bf5b29-1749671221
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 4000
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: habitat-backend-secrets
+                  key: db_password
+            - name: HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: habitat-backend-config
+                  key: host
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: habitat-backend-config
+                  key: db_user
+            - name: BACKEND_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: habitat-backend-config
+                  key: backend_host
+          args:
+            - "-host=$(HOST)"
+            - "-db_user=$(DB_USER)"
+            - "-db_password=$(DB_PASSWORD)"
+            - "-backend_host=$(BACKEND_HOST)"

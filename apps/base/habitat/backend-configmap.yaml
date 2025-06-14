@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: habitat-backend-config
+data:
+  host: 192.168.100.244
+  db_user: habitat
+  backend_host: habitat-dev-habitat-backend.tailea939c.ts.net:4000
