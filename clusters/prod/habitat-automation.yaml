@@ -20,5 +20,5 @@ spec:
     push:
       branch: main
   update:
-    path: ./clusters/prod
+    path: ./apps/prod
     strategy: Setters
