@@ -4,4 +4,4 @@ namespace: monitoring
 resources:
   - repository.yaml
   - release.yaml
-  - promtail-release.yaml
+  - alloy-release.yaml
