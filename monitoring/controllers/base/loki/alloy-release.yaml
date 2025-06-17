@@ -23,9 +23,11 @@ spec:
             level = "debug"
             format = "logfmt"
           }
+
           discovery.kubernetes "pods" {
             role = "pod"
           }
+
           discovery.relabel "pods" {
             targets = discovery.kubernetes.pods.targets
 
@@ -36,17 +38,20 @@ spec:
               action        = "replace"
             }
           }
+
           loki.source.kubernetes "pods" {
             targets    = discovery.relabel.pods.output
             forward_to = [loki.process.process.receiver]
           }
+
           loki.process "process" {
-            forward_to = [loki.write.loki.receiver]
+            forward_to = [loki.write.local]
 
             stage.drop {
               older_than          = "1h"
               drop_counter_reason = "too old"
             }
+
             stage.match { 
               selector = "{instance=~\".*\"}"
               stage.json {
@@ -60,16 +65,17 @@ spec:
                 }
               }
             }
+
             stage.label_drop {
               values = [ "job", "service_name" ]
             }
           }
+
           loki.write "local" {
             endpoint {
               url = "http://loki-gateway/loki/api/v1/push"
-                tenant_id = "1"
+              tenant_id = "1"
             }
           }
-          loki.echo "example" { }
 
-          
+          loki.echo "example" { }
