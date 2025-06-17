@@ -45,7 +45,7 @@ spec:
           }
 
           loki.process "process" {
-            forward_to = [loki.write.local]
+            forward_to = [loki.write.local.receiver]
 
             stage.drop {
               older_than          = "1h"
