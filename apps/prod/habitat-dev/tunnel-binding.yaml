@@ -1,0 +1,21 @@
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: TunnelBinding
+metadata:
+  name: habitat-frontend
+  namespace: habitat-dev
+subjects:
+  - name: habitat-frontend # Name of our service 
+tunnelRef:
+  kind: ClusterTunnel
+  name: wyrmops-tunnel
+---
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: TunnelBinding
+metadata:
+  name: habitat-backend
+  namespace: habitat-dev
+subjects:
+  - name: habitat-backend # Name of our service 
+tunnelRef:
+  kind: ClusterTunnel
+  name: wyrmops-tunnel

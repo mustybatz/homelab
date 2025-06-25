@@ -13,3 +13,18 @@ spec:
     secret: cloudflare-secrets
     # accountId and accountName cannot be both empty. If both are provided, Account ID is used if valid, else falls back to Account Name.
     accountId: c7e22d8517cb8c73d3665670e9a7f673
+---
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: ClusterTunnel
+metadata:
+  name: wyrmops-tunnel
+spec:
+  newTunnel:
+    name: wyrmops-tunnel
+  size: 2
+  cloudflare:
+    email: barushuwu@gmail.com
+    domain: wyrmops.com
+    secret: cloudflare-secrets
+    # accountId and accountName cannot be both empty. If both are provided, Account ID is used if valid, else falls back to Account Name.
+    accountId: c7e22d8517cb8c73d3665670e9a7f673

@@ -4,6 +4,7 @@ namespace: habitat-dev
 resources:
   - ../../base/habitat
   - db.yaml
+  - tunnel-binding.yaml
 images:
   - name: mustybatz/habitat-backend
     newName: mustybatz/habitat-backend # {"$imagepolicy": "flux-system:habitat-backend-latest:name"}
