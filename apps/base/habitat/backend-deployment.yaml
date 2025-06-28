@@ -51,6 +51,16 @@ spec:
                 configMapKeyRef:
                   name: habitat-backend-config
                   key: backend_host
+            - name: TWILIO_ACCOUNT_SID
+              valueFrom:
+                secretKeyRef:
+                  name: habitat-backend-secrets
+                  key: TWILIO_ACCOUNT_SID
+            - name: TWILIO_AUTH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: habitat-backend-secrets
+                  key: TWILIO_AUTH_TOKEN
           volumeMounts:
             - name: secrets-volume
               mountPath: /secrets
