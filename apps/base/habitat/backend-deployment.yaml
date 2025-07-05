@@ -18,11 +18,11 @@ spec:
           image: mustybatz/habitat-backend:dev-43bf5b29-1749671221
           resources:
             requests:
-              memory: "100Mi"
-              cpu: "100m"
+              memory: "1Gi"
+              cpu: "2"
             limits:
-              memory: "128Mi"
-              cpu: "500m"
+              memory: "6Gi"
+              cpu: "4"
           ports:
             - containerPort: 4000
           args:
