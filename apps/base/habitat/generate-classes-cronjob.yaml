@@ -2,7 +2,6 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: generate-classes-cronjob
-  namespace: habitat
 spec:
   schedule: "0 7 * * *"  # Run at 7 AM daily
   concurrencyPolicy: Forbid
