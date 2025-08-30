@@ -24,6 +24,6 @@ spec:
             - name: API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: api-key
+                  name: habitat-backend-secrets
                   key: API_KEY
           restartPolicy: OnFailure
