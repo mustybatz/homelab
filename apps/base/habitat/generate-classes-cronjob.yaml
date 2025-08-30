@@ -2,6 +2,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: generate-classes-cronjob
+  namespace: habitat-dev
 spec:
   schedule: "0 7 * * *"  # Run at 7 AM daily
   concurrencyPolicy: Forbid
@@ -16,10 +17,19 @@ spec:
             - /bin/sh
             - -c
             - |
+              echo "Testing environment variable..."
+              if [ -z "$API_KEY" ]; then
+                echo "ERROR: API_KEY is empty or not set"
+                exit 1
+              fi
+              echo "API_KEY is set, length: ${#API_KEY}"
+              echo "API_KEY starts with: ${API_KEY:0:10}..."
+              echo "Making API call..."
               curl -X 'POST' \
                 'https://habitat-backend.wyrmops.com/internal/cron/generate-classes' \
                 -H 'accept: application/json' \
-                -H 'Authorization: Bearer $API_KEY'
+                -H "Authorization: Bearer $API_KEY" \
+                -v
             env:
             - name: API_KEY
               valueFrom:
