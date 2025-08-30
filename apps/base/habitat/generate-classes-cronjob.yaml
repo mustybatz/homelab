@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: generate-classes-cronjob
+  namespace: habitat
+spec:
+  schedule: "0 7 * * *"  # Run at 7 AM daily
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: curl-job
+            image: curlimages/curl:latest
+            command:
+            - /bin/sh
+            - -c
+            - |
+              curl -X 'POST' \
+                'https://habitat-backend.wyrmops.com/internal/cron/generate-classes' \
+                -H 'accept: application/json' \
+                -H 'Authorization: Bearer $API_KEY'
+            env:
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: API_KEY
+                  key: API_KEY
+          restartPolicy: OnFailure

@@ -6,3 +6,4 @@ resources:
   - backend-service.yaml
   - frontend-deployment.yaml
   - frontend-service.yaml
+  - generate-classes-cronjob.yaml
