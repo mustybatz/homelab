@@ -11,4 +11,4 @@ images:
     newTag: dev-1e632034-1756788151 # {"$imagepolicy": "flux-system:habitat-backend-latest:tag"}
   - name: keylab/habitat-frontend
     newName: keylab/habitat-frontend # {"$imagepolicy": "flux-system:habitat-frontend-latest:name"}
-    newTag: dev-f23db89e-1757083733 # {"$imagepolicy": "flux-system:habitat-frontend-latest:tag"}
+    newTag: dev-88c09c6a-1757090265 # {"$imagepolicy": "flux-system:habitat-frontend-latest:tag"}
