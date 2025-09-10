@@ -8,7 +8,7 @@ resources:
 images:
   - name: mustybatz/habitat-backend
     newName: mustybatz/habitat-backend # {"$imagepolicy": "flux-system:habitat-backend-latest:name"}
-    newTag: dev-cc188350-1757453257 # {"$imagepolicy": "flux-system:habitat-backend-latest:tag"}
+    newTag: dev-f8151b81-1757536859 # {"$imagepolicy": "flux-system:habitat-backend-latest:tag"}
   - name: keylab/habitat-frontend
     newName: keylab/habitat-frontend # {"$imagepolicy": "flux-system:habitat-frontend-latest:name"}
     newTag: dev-a2b7c631-1757528609 # {"$imagepolicy": "flux-system:habitat-frontend-latest:tag"}
