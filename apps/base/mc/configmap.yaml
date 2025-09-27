@@ -8,5 +8,5 @@ data:
   max-memory: "14G"
   motd: "MUERTE AL ESTADO DE ISRAEL, MALDITO SEAS ESTADO DE ISRAEL"
   server-type: "AUTO_CURSEFORGE"
-  version: "1.21.1"
-  modpack-url: "https://www.curseforge.com/minecraft/modpacks/ftb-evolution"
+  version: "1.20.1"
+  modpack-url: "https://www.curseforge.com/minecraft/modpacks/homestead-cozy"
