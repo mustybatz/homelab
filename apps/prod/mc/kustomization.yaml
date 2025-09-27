@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: mc-ftb-evolution
 resources:
   - namespace.yaml
-  - ../../base/mc-atm
+  - ../../base/mc
