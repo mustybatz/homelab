@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: minecraft-data
   annotations:
-    longhorn.io/replica-count: "1"
+    longhorn.io/replica-count: "2"
 spec:
   accessModes:
     - ReadWriteMany
@@ -17,7 +17,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: minecraft-backups
   annotations:
-    longhorn.io/replica-count: "1"
+    longhorn.io/replica-count: "2"
 spec:
   accessModes:
     - ReadWriteMany
