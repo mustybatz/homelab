@@ -71,7 +71,37 @@ spec:
           volumeMounts:
             - name: mc-data
               mountPath: /data
+
+        - name: mc-backups
+          image: itzg/mc-backup
+          env:
+            - name: BACKUP_INTERVAL
+              value: "2h"
+            - name: RCON_HOST
+              value: "localhost"
+            - name: MOTD
+              value: "Welcome to FTB Evolution Server"
+            - name: PRE_BACKUP_SCRIPT
+              value: |
+                echo "Starting backup of FTB Evolution server..."
+                echo "Backing up from $$RCON_HOST to $$DEST_DIR"
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "200m"
+            requests:
+              memory: "200Mi"
+              cpu: "10m"
+          volumeMounts:
+            - name: mc-data
+              mountPath: /data
+            - name: mc-backups
+              mountPath: /backups
+
       volumes:
         - name: mc-data
           persistentVolumeClaim:
             claimName: minecraft-data
+        - name: mc-backups
+          persistentVolumeClaim:
+            claimName: minecraft-backups
