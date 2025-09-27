@@ -4,9 +4,9 @@ metadata:
   name: minecraft-config
 data:
   spawn-protection: "1"
-  init-memory: "6G"
-  max-memory: "12G"
-  motd: "Welcome to FTB Evolution Server"
+  init-memory: "8G"
+  max-memory: "14G"
+  motd: "MUERTE AL ESTADO DE ISRAEL, MALDITO SEAS ESTADO DE ISRAEL"
   server-type: "AUTO_CURSEFORGE"
   version: "1.21.1"
   modpack-url: "https://www.curseforge.com/minecraft/modpacks/ftb-evolution"

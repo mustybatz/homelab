@@ -62,11 +62,11 @@ spec:
                   key: cf-api-key
           resources:
             requests:
-              memory: "6Gi"
-              cpu: "2"
+              memory: "8Gi"
+              cpu: "4"
             limits:
-              memory: "12Gi"
-              cpu: "6"
+              memory: "16Gi"
+              cpu: "8"
             
           volumeMounts:
             - name: mc-data
