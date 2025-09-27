@@ -6,7 +6,7 @@ metadata:
     longhorn.io/replica-count: "2"
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   storageClassName: longhorn
   resources:
     requests:
@@ -20,7 +20,7 @@ metadata:
     longhorn.io/replica-count: "2"
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   storageClassName: longhorn
   resources:
     requests:
