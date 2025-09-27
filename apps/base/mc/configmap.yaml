@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: minecraft-config
+data:
+  spawn-protection: "1"
+  init-memory: "6G"
+  max-memory: "12G"
+  motd: "Welcome to FTB Evolution Server"
+  server-type: "AUTO_CURSEFORGE"
+  version: "1.21.1"
+  modpack-url: "https://www.curseforge.com/minecraft/modpacks/ftb-evolution"

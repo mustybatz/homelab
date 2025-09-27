@@ -21,20 +21,51 @@ spec:
             - name: EULA
               value: "TRUE"
             - name: SPAWN_PROTECTION
-              value: "1"
+              valueFrom:
+                configMapKeyRef:
+                  name: minecraft-config
+                  key: spawn-protection
             - name: MOTD
-              value: "Welcome to Minecraft on Kubernetes"
+              valueFrom:
+                configMapKeyRef:
+                  name: minecraft-config
+                  key: motd
             - name: INIT_MEMORY
-              value: "5G"
+              valueFrom:
+                configMapKeyRef:
+                  name: minecraft-config
+                  key: init-memory
             - name: MAX_MEMORY
-              value: "8G"
-          
+              valueFrom:
+                configMapKeyRef:
+                  name: minecraft-config
+                  key: max-memory
+            - name: TYPE
+              valueFrom:
+                configMapKeyRef:
+                  name: minecraft-config
+                  key: server-type
+            - name: VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: minecraft-config
+                  key: version
+            - name: CF_PAGE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: minecraft-config
+                  key: modpack-url
+            - name: CF_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-config
+                  key: cf-api-key
           resources:
             requests:
-              memory: "5Gi"
-              cpu: "4"
+              memory: "6Gi"
+              cpu: "2"
             limits:
-              memory: "8Gi"
+              memory: "12Gi"
               cpu: "6"
             
           volumeMounts:
