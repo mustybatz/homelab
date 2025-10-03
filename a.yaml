@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: minecraft-config
+  namespace: mc-ftb-evolution
+type: Opaque
+data:
+  cf-api-key: JDJhJDEwJHJWSXViQXF1TGRvdjFob3AvNWJrYk9veW5LLy5ZSkV6d3JzRWVWOUx5ZDNVdnBSM0MzNnNX

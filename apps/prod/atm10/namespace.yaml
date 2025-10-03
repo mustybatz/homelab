@@ -1,4 +1,4 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: mc-bcg
+  name: atm10
