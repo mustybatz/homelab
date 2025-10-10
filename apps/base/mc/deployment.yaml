@@ -85,6 +85,11 @@ spec:
               value: |
                 echo "Starting backup of FTB Evolution server..."
                 echo "Backing up from $$RCON_HOST to $$DEST_DIR"
+            - name: PAUSE_IF_NO_PLAYERS
+              value: "true"
+            - PRUNE_BACKUPS_DAYS
+              value: "3"
+
           resources:
             limits:
               memory: "1Gi"
